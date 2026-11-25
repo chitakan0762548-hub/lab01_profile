@@ -2,8 +2,15 @@ import 'package:flutter/material.dart';
 
 void main() => runApp(const MaterialApp(home: HomePage()));
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  int likes = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -11,12 +18,25 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Lab L1 · 67121509'),
       ),
-      body: const Center(
+      body: Center(
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Icon(Icons.person, size: 96),
-            Text('ชิตากานต์ ไสวศรี - 67121509'),
+            const Icon(Icons.person, size: 96),
+            const SizedBox(height: 12),
+            const Text('ชิตากานต์ ไสวศรี - 67121509'),
+            const SizedBox(height: 12),
+            Text('Likes: $likes'),
+            const SizedBox(height: 12),
+            ElevatedButton.icon(
+              onPressed: () {
+                setState(() {
+                  likes++;
+                });
+              },
+              icon: const Icon(Icons.thumb_up),
+              label: const Text('Like'),
+            ),
           ],
         ),
       ),
