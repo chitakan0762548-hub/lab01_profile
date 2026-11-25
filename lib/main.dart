@@ -7,9 +7,18 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
-        child: Text('Hello!'),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Lab L1 · 67121509'),
+      ),
+      body: const Center(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Icon(Icons.person, size: 96),
+            Text('ชิตากานต์ ไสวศรี - 67121509'),
+          ],
+        ),
       ),
     );
   }
